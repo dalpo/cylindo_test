@@ -100,6 +100,8 @@ payload = {
   "productAliases": nil
 }.with_indifferent_access
 
+# product = FpItem.where(name: payload[:code]).first_or_initialize
+# product = FpItem.where(cylindo_product: payload[:code]).first_or_initialize
 product = Cylindo::Product.where(code: payload[:code]).first_or_initialize
 # product.vendor = payload[:vendor]
 product.save!
