@@ -24,6 +24,8 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
 
+  config.label_methods = %i[admin_label to_label name title]
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -38,5 +40,41 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+
+    config.model 'Cylindo::Product' do
+      edit do
+        field :code
+        field :version
+        field :customer
+        field :fp_item
+      end
+    end
+
+    config.model 'Cylindo::Feature' do
+      edit do
+        field :code
+        field :name
+        field :product
+      end
+    end
+
+    config.model 'Cylindo::Option' do
+      edit do
+        field :code
+        field :name
+        field :feature
+        field :fp_items
+      end
+    end
+
+    config.model 'FpItem' do
+      edit do
+        field :name
+        field :description
+        field :parent_id
+        field :cylindo_product
+        field :cylindo_options
+      end
+    end
   end
 end
