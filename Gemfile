@@ -65,4 +65,8 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "rails_admin", "~> 3.3"
+gem "rails_admin", # "~> 3.3"
+    github: 'railsadminteam/rails_admin'
+gem "cssbundling-rails"
+
+gem "dartsass-rails", "~> 0.5.1"
